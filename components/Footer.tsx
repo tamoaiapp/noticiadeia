@@ -37,6 +37,9 @@ export default function Footer() {
             <div style={{ fontWeight: 700, color: "#e2e8f0", marginBottom: "0.75rem", fontSize: "0.9rem" }}>Portal</div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem" }}>
               <Link href="/sobre" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "0.875rem" }}>Sobre</Link>
+              <Link href="/contato" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "0.875rem" }}>Contato</Link>
+              <Link href="/privacidade" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "0.875rem" }}>Privacidade</Link>
+              <Link href="/termos" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "0.875rem" }}>Termos de Uso</Link>
               <a href="/feed.xml" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "0.875rem" }}>Feed RSS</a>
             </div>
           </div>
