@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import Logo from "./Logo";
 
 const categorias = [
   { label: "Lançamentos", slug: "lancamentos" },
@@ -20,20 +21,8 @@ export default function Header() {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 1.25rem" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 60 }}>
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6 }}>
-            <span style={{
-              background: "#1d4ed8",
-              color: "#fff",
-              fontSize: "0.7rem",
-              fontWeight: 800,
-              padding: "2px 7px",
-              borderRadius: 4,
-              letterSpacing: "0.03em",
-              textTransform: "uppercase",
-            }}>IA</span>
-            <span style={{ fontWeight: 900, fontSize: "1.2rem", color: "#0f172a", letterSpacing: "-0.02em" }}>
-              notícia<span style={{ color: "#1d4ed8" }}>deia</span>
-            </span>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <Logo size="sm" />
           </Link>
 
           {/* Nav desktop */}

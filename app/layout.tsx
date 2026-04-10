@@ -5,17 +5,35 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Notícia de IA — Inteligência Artificial para o mercado brasileiro",
+    default: "notíciadeia.com — Inteligência Artificial para o mercado brasileiro",
     template: "%s | notíciadeia.com",
   },
   description:
     "O melhor portal de notícias sobre Inteligência Artificial em PT-BR. Lançamentos, ferramentas, tendências e o que a IA significa para o mercado brasileiro.",
   keywords: "inteligência artificial, IA, ChatGPT, notícias IA, ferramentas IA, IA brasil",
   metadataBase: new URL("https://noticiadeia.com"),
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
   openGraph: {
     siteName: "notíciadeia.com",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "notíciadeia.com — Inteligência Artificial para o Brasil",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "notíciadeia.com",
+    description: "Notícias e tendências de IA para o mercado brasileiro.",
+    images: ["/og-image.png"],
   },
 };
 

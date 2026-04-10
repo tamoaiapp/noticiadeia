@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -6,9 +7,8 @@ export default function Footer() {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "3rem 1.25rem 2rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem", marginBottom: "2.5rem" }}>
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: "0.75rem" }}>
-              <span style={{ background: "#1d4ed8", color: "#fff", fontSize: "0.65rem", fontWeight: 800, padding: "2px 6px", borderRadius: 4, textTransform: "uppercase" }}>IA</span>
-              <span style={{ fontWeight: 900, fontSize: "1.1rem", color: "#fff" }}>notícia<span style={{ color: "#60a5fa" }}>deia</span></span>
+            <div style={{ marginBottom: "0.75rem" }}>
+              <Logo size="sm" theme="dark" />
             </div>
             <p style={{ fontSize: "0.875rem", lineHeight: 1.7 }}>
               Notícias e tendências de Inteligência Artificial com olhar prático para o mercado brasileiro.
