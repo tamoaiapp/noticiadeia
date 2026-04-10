@@ -1,0 +1,77 @@
+---
+title: "O que é RAG e por que empresas estão usando"
+description: "RAG (Retrieval-Augmented Generation) é a tecnologia por trás dos chatbots corporativos que 'sabem' sobre a sua empresa. Entenda como funciona."
+category: "Negócios"
+readTime: "6 min"
+keywords: "o que é rag, retrieval augmented generation, chatbot corporativo, ia empresa"
+banner: "default"
+---
+
+Você já tentou usar o ChatGPT para responder perguntas específicas sobre a sua empresa — preços, políticas, produtos — e ele inventou informações que não existem? Esse é exatamente o problema que o RAG resolve.
+
+## O problema com LLMs sem RAG
+
+Modelos de linguagem como o GPT são treinados com dados até uma certa data. Eles não sabem:
+- Os preços do seu negócio
+- Seus produtos específicos
+- Suas políticas internas
+- Informações que surgiram após o treinamento
+
+Quando você pergunta algo que ele não sabe, ele "alucina" — inventa uma resposta que parece razoável mas é falsa.
+
+## O que é RAG
+
+RAG significa **Retrieval-Augmented Generation** — geração aumentada por recuperação. É uma arquitetura que combina dois sistemas:
+
+1. **Recuperação (Retrieval)**: busca informações relevantes numa base de dados que você controla
+2. **Geração (Generation)**: usa um LLM para formular a resposta baseado nas informações recuperadas
+
+**Simplificando**: em vez de a IA responder só com o que aprendeu no treinamento, ela primeiro "pesquisa" nos seus documentos e depois responde baseada no que encontrou.
+
+## Como funciona na prática
+
+Imagine um chatbot de atendimento para uma loja:
+
+**Sem RAG**:
+- Cliente: "Vocês têm frete grátis?"
+- IA: "Sim, oferecemos frete grátis para compras acima de R$99" (INVENTADO)
+
+**Com RAG**:
+- Cliente: "Vocês têm frete grátis?"
+- Sistema busca na base de dados da loja: encontra a política de frete real
+- IA: "Sim! Frete grátis para compras acima de R$150 para SP e R$200 para outros estados." (CORRETO, baseado na política real)
+
+## Por que empresas estão adotando
+
+### Chatbots que realmente sabem sobre o negócio
+
+Com RAG, você cria um assistente que conhece tudo sobre sua empresa — produtos, preços, políticas, FAQ — sem precisar treinar um modelo do zero (o que seria extremamente caro).
+
+### Busca inteligente em documentos
+
+Empresas com muitos documentos internos (manuais, contratos, relatórios) usam RAG para criar um "Google interno" que responde perguntas diretamente dos documentos.
+
+### Redução de alucinações
+
+O RAG reduz drasticamente as "alucinações" do modelo, porque ele só responde com base em informações reais que você forneceu.
+
+## Exemplos de uso no Brasil
+
+- **Escritórios de advocacia**: chatbot que responde sobre jurisprudência baseado nos documentos do escritório
+- **E-commerces**: assistente que consulta catálogo e estoque em tempo real
+- **Clínicas**: chatbot que responde sobre procedimentos baseado nos materiais da clínica
+- **Condomínios**: assistente que responde sobre regras do regulamento interno
+
+## Como implementar (sem ser técnico)
+
+Para pequenas empresas, existe hoje uma nova geração de ferramentas "no-code" de RAG:
+
+- **Dify.ai**: crie chatbots RAG arrastando arquivos
+- **Flowise**: open-source, mais técnico
+- **NotebookLM (Google)**: sobe documentos e conversa com eles (grátis)
+- **Chatbase**: crie um chatbot do seu site em minutos
+
+<div className="significa-box">
+<strong>💡 O que isso significa para você</strong>
+Se você quer criar um chatbot que realmente sabe sobre o seu negócio — produtos, preços, políticas — a resposta é RAG. Para começar sem gastar nada, experimente o NotebookLM do Google: suba seus arquivos de catálogo ou FAQ e você imediatamente tem uma IA que responde baseada no seu conteúdo.
+</div>

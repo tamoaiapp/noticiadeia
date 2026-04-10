@@ -1,0 +1,13 @@
+import { generateRSS } from "@/lib/rss";
+
+export const dynamic = "force-static";
+
+export function GET() {
+  const rss = generateRSS();
+  return new Response(rss, {
+    headers: {
+      "Content-Type": "application/rss+xml; charset=utf-8",
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
+}
