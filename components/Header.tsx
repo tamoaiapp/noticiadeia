@@ -32,9 +32,6 @@ export default function Header() {
                 {c.label}
               </Link>
             ))}
-            <Link href="/ferramentas" style={{ color: "#475569", textDecoration: "none", fontWeight: 500, fontSize: "0.9rem" }}>
-              Ferramentas
-            </Link>
             <Link href="/produtos" style={{ background: "#1d4ed8", color: "#fff", padding: "0.4rem 0.9rem", borderRadius: 7, textDecoration: "none", fontWeight: 700, fontSize: "0.875rem" }}>
               Nossos Produtos
             </Link>
@@ -54,7 +51,6 @@ export default function Header() {
                 {c.label}
               </Link>
             ))}
-            <Link href="/ferramentas" style={{ color: "#0f172a", textDecoration: "none", fontWeight: 500, padding: "0.25rem 0" }} onClick={() => setOpen(false)}>Ferramentas</Link>
             <Link href="/produtos" style={{ color: "#1d4ed8", fontWeight: 700, textDecoration: "none", padding: "0.25rem 0" }} onClick={() => setOpen(false)}>Nossos Produtos</Link>
           </div>
         )}
