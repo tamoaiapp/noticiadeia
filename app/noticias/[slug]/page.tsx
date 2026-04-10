@@ -10,8 +10,10 @@ import NewsletterForm from "@/components/NewsletterForm";
 
 interface Props { params: Promise<{ slug: string }> }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  return getAllArticles().map((a) => ({ slug: a.slug }));
+  return getAllArticles().slice(0, 80).map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
