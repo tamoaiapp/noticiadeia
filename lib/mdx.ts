@@ -4,6 +4,58 @@ import matter from "gray-matter";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/noticias");
 
+// Autores fictícios — atribuídos deterministicamente pelo slug (mesmo artigo = mesmo autor sempre)
+const AUTORES = [
+  "Lucas Ferreira",
+  "Camila Rocha",
+  "Rafael Mendes",
+  "Juliana Alves",
+  "Thiago Carvalho",
+  "Mariana Costa",
+  "Felipe Souza",
+  "Beatriz Lima",
+  "Eduardo Nunes",
+  "Fernanda Gomes",
+  "Gabriel Oliveira",
+  "Amanda Ribeiro",
+  "Rodrigo Santos",
+  "Isabela Martins",
+  "Bruno Azevedo",
+  "Letícia Pinto",
+  "Diego Campos",
+  "Natália Vieira",
+  "Mateus Barbosa",
+  "Priscila Teixeira",
+  "André Moraes",
+  "Vanessa Cunha",
+  "Leandro Pereira",
+  "Renata Fonseca",
+  "Caio Monteiro",
+  "Sabrina Araújo",
+  "Vinícius Lopes",
+  "Patrícia Borges",
+  "Daniel Correia",
+  "Aline Machado",
+  "Fábio Rezende",
+  "Larissa Guimarães",
+  "Henrique Bastos",
+  "Tatiana Melo",
+  "Marcelo Castro",
+  "Lívia Duarte",
+  "Gustavo Freitas",
+  "Caroline Moreira",
+  "Otávio Nogueira",
+  "Débora Siqueira",
+];
+
+function pickAuthor(slug: string): string {
+  let hash = 0;
+  for (let i = 0; i < slug.length; i++) {
+    hash = (hash * 31 + slug.charCodeAt(i)) >>> 0;
+  }
+  return AUTORES[hash % AUTORES.length];
+}
+
 export interface ArticleMeta {
   slug: string;
   title: string;
@@ -41,10 +93,10 @@ export function getAllArticles(): ArticleMeta[] {
         keywords: data.keywords ?? "",
         banner: data.banner ?? "default",
         date,
-        author: data.author ?? "Redação NotíciadIA",
+        author: data.author ?? pickAuthor(slug),
       } as ArticleMeta;
     })
-    .sort((a, b) => b.date.localeCompare(a.date)); // mais recentes primeiro
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function getArticleBySlug(slug: string): Article | null {
@@ -66,7 +118,7 @@ export function getArticleBySlug(slug: string): Article | null {
     keywords: data.keywords ?? "",
     banner: data.banner ?? "default",
     date,
-    author: data.author ?? "Redação NotíciadIA",
+    author: data.author ?? pickAuthor(slug),
     content,
   };
 }
