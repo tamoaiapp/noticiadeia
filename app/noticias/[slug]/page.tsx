@@ -24,7 +24,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: a.title,
     description: a.description,
     keywords: a.keywords,
-    openGraph: { title: a.title, description: a.description, type: "article" },
+    openGraph: {
+      title: a.title,
+      description: a.description,
+      type: "article",
+      publishedTime: a.date,
+      authors: [a.author],
+    },
   };
 }
 
@@ -36,7 +42,26 @@ export default async function ArticlePage({ params }: Props) {
   const related = getAllArticles().filter((a) => a.slug !== slug && a.category === article.category).slice(0, 3);
   const bannerContext = (article.banner ?? "default") as "automacao" | "fornecedor" | "whatsapp" | "foto" | "default";
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: [{ "@type": "Person", name: article.author }],
+    publisher: {
+      "@type": "Organization",
+      name: "NotíciadIA",
+      url: "https://noticiadeia.com",
+    },
+    url: `https://noticiadeia.com/noticias/${article.slug}`,
+    inLanguage: "pt-BR",
+  };
+
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div style={{ maxWidth: 1200, margin: "0 auto", padding: "2rem 1.25rem" }}>
       {/* Breadcrumb */}
       <nav style={{ marginBottom: "1.5rem", fontSize: "0.85rem", color: "#94a3b8", display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
@@ -68,6 +93,8 @@ export default async function ArticlePage({ params }: Props) {
           <div style={{ display: "flex", gap: "1.5rem", marginBottom: "2rem", paddingBottom: "1.5rem", borderBottom: "1px solid #e2e8f0", flexWrap: "wrap", fontSize: "0.85rem", color: "#94a3b8" }}>
             <span>⏱ {article.readTime} de leitura</span>
             <span>📂 {article.category}</span>
+            <time dateTime={article.date}>📅 {new Date(article.date + "T12:00:00").toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}</time>
+            <span>✍️ {article.author}</span>
           </div>
 
           <div className="article-body">
@@ -124,5 +151,6 @@ export default async function ArticlePage({ params }: Props) {
         }
       `}</style>
     </div>
+    </>
   );
 }

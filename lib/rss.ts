@@ -3,19 +3,22 @@ import { getAllArticles } from "./mdx";
 const BASE_URL = "https://noticiadeia.com";
 
 export function generateRSS(): string {
-  const articles = getAllArticles();
+  const articles = getAllArticles().slice(0, 200); // Google News lê os mais recentes
 
   const items = articles
-    .map(
-      (a) => `
+    .map((a) => {
+      const pubDate = new Date(a.date).toUTCString();
+      return `
     <item>
       <title><![CDATA[${a.title}]]></title>
       <link>${BASE_URL}/noticias/${a.slug}</link>
-      <guid>${BASE_URL}/noticias/${a.slug}</guid>
+      <guid isPermaLink="true">${BASE_URL}/noticias/${a.slug}</guid>
       <description><![CDATA[${a.description}]]></description>
       <category><![CDATA[${a.category}]]></category>
-    </item>`
-    )
+      <pubDate>${pubDate}</pubDate>
+      <author>redacao@noticiadeia.com (${a.author})</author>
+    </item>`;
+    })
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
